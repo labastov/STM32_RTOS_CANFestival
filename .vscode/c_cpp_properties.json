@@ -2,10 +2,10 @@
     "configurations": [{
         "name": "arm_c_cpp_properties",
         "compilerPath": "${config:GCCPath}/bin/arm-none-eabi-gcc.exe",
+        "forcedInclude":[],
         "includePath": [
             "${workspaceFolder}/Src",
             "${workspaceFolder}/Inc",
-            "${workspaceFolder}/Lib/**",
             "${workspaceFolder}/Lib/canDriver/**",
             "${workspaceFolder}/Lib/Debug/**",
             "${workspaceFolder}/Lib/canfestival/src",
@@ -16,18 +16,25 @@
             "${config:GCCPath}/lib/**",
             "${config:GCCPath}/arm-none-eabi/include/**"
         ],
+        "excludePath":[],
         "defines": [
             "USE_HAL_DRIVER",
             "STM32F103xB",
             "M3",
             "GCC_ARMCM3",
-            "DEBUG",
-            // "DEBUG_ERR_CONSOLE_ON",
-            // "DEBUG_WAR_CONSOLE_ON"
+            "DEBUG"
         ],
         "cStandard": "c11",
         "cppStandard": "c++17",
         "intelliSenseMode": "gcc-x64"
         }],
-        "version": 4
+        "version": 4,
+        "env":{
+            "musor":[
+                "${workspaceFolder}/Lib/**",
+                "DEBUG_ERR_CONSOLE_ON",
+                "DEBUG_WAR_CONSOLE_ON"
+            ]
+        }
+        
     }

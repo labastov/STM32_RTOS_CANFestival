@@ -28,9 +28,9 @@
 
 /*
  ******************************************************************************
- * так как используем HAL а внем другие структуры для передачи приемо сообщений
- * надо вводить старые струкутры далее придется переность данные из одной 
- * структуры в другую применяем эти стурктуры т.к. они меньше и не надо 
+ * так как используем HAL а в нем структуры с длинными полями для приемо-передачи сообщений
+ * надо вводить старые структуры далее придется переносить данные из одной
+ * структуры в другую применяем эти стуктуры т.к. они меньше и не надо
  * раздувать очередь (применяется uint8_t вместо uint32_t)
  ******************************************************************************
  */
@@ -71,41 +71,41 @@ typedef struct {
 } CanRxMsgTypeDef; // аналог CAN_RxHeaderTypeDef;
 
 /*  Config CAN tasks parametrs----------------------------------------------------------------*/
-#define CAN_TX_QUEUE_LEN 10  //
-#define CAN_RX_QUEUE_LEN 10  // 
-#define CAN_TX_STACK_SIZE 256  // 
-#define CAN_TX_TASK_PRIORITY 3 // 
-#define CAN_RX_STACK_SIZE 256  // 
-#define CAN_RX_TASK_PRIORITY 3 // 
+#define CAN_TX_QUEUE_LEN 10    //
+#define CAN_RX_QUEUE_LEN 10    //
+#define CAN_TX_STACK_SIZE 256  //
+#define CAN_TX_TASK_PRIORITY 3 //
+#define CAN_RX_STACK_SIZE 256  //
+#define CAN_RX_TASK_PRIORITY 3 //
 
-#define CAN_OPEN_TIM_PERIOD 65535 //��ʱ����
+#define CAN_OPEN_TIM_PERIOD 65535 //
 
-// #define  ENABLE_SECOND_CAN_FILTER // включаем второй фильтр пропускающй все 
+// #define  ENABLE_SECOND_CAN_FILTER // включаем второй фильтр пропускающий все
 
-#define hCANOPEN_TIMx htim2 
+#define hCAN_TIMx htim2
 #define _hcan hcan // CAN handle Structure definition for CAN_HandleTypeDef
 
-/* определяем переменную для хранения адреса устройства на шине CAN сама переменая хранится в OD_CAN*/
-extern uint8_t can_id;  // from Slave.c
+/* определяем переменную для хранения адреса устройства на шине CAN сама переменная хранится в OD_CAN*/
+extern uint8_t can_id;              // from Slave.c
 extern uint8_t Slave_bDeviceNodeId; // from Slave.c
-
+extern CO_Data Slave_Data;          // from Slave.c
 
 /*
 */
-// #define DEBUG_CAN
+#define DEBUG_CAN
 #ifdef DEBUG_CAN
-#define can_debug_printf(args...) \
-  portENTER_CRITICAL();                                                        \
-  debug_printf(args);                                                   \
+#define can_debug_printf(args...)                                                                                      \
+  portENTER_CRITICAL();                                                                                                \
+  debug_printf(args);                                                                                                  \
   portEXIT_CRITICAL()
 #else
-#define can_debug_printf(args...)                                                                                       \
+#define can_debug_printf(args...)                                                                                      \
   { ; }
 #endif // DEBUG_CAN
 
-// #define DEBUG_CAN_TASKS
+#define DEBUG_CAN_TASKS
 #ifdef DEBUG_CAN_TASKS
-#define can_tasks_debug_printf(args...)                                                                                      \
+#define can_tasks_debug_printf(args...)                                                                                \
   portENTER_CRITICAL();                                                                                                \
   debug_printf(args);                                                                                                  \
   portEXIT_CRITICAL()
@@ -116,16 +116,31 @@ extern uint8_t Slave_bDeviceNodeId; // from Slave.c
 
 /*  function declarating ------------------------------------------------------------------*/
 
+void CAN_Start_Task(void *argument);
+HAL_StatusTypeDef CAN_Configuration(void);
 void CAN_Init_Driver(void);
-void CAN_Send_Date(CanTxMsgTypeDef TxMsg);
-void CAN_Rcv_DateFromISR(CanRxMsgTypeDef *RxMsg);
-void TIMx_DispatchFromISR(void);
+void CAN_Start_App(void);
+
+/* настраиваем фильтр CAN */
+HAL_StatusTypeDef CAN_SetFilter(CAN_HandleTypeDef *_hcan, uint8_t _can_id);
+
+/* принимаем данные из CanFesteval */
+unsigned char canSend(CAN_PORT notused, Message *m);
 
 /* создаем функцию т.к. такой в HAL Нет*/
 HAL_StatusTypeDef CAN_Transmit(CAN_HandleTypeDef *_hcan, CanTxMsgTypeDef *TxMsg);
 
-/*настраиваем фильтр CAN */
-HAL_StatusTypeDef CAN_SetFilter(CAN_HandleTypeDef *_hcan, uint8_t _can_id);
+void CAN_Rcv_DateFromISR(CanRxMsgTypeDef *RxMsg);
+
+/* ------------------------- Timers functions------------------------------------------- */
+
+void setTimer(TIMEVAL value);
+TIMEVAL getElapsedTime(void);
+void TIMx_DispatchFromISR(void);
+
+// void CAN_Send_Date(CanTxMsgTypeDef TxMsg);
+
+/* ------------------------- CALLBACKs ---------------------------------------------- */
 
 /* callback for NMT */
 void NMT_Slave_Node_Reset_Callback_Function(CO_Data *);

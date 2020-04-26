@@ -97,7 +97,7 @@ int main(void)
   debug_printf("booting....\n");
   // debug_printf("booting.");
   uint8_t dw = 0;
-  while (dw < 11) {
+  while (dw < 18) {
     Debug_view_int(dw);
     HAL_Delay(100);
     HAL_GPIO_TogglePin(PWM_GPIO_Port, PWM_Pin);   // LED на PWM (PB0)

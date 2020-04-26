@@ -3,3 +3,4 @@
 *.log
 .git/
 .gitignore
+Src/testcan.c
