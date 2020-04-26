@@ -1,0 +1,20 @@
+{
+    "cortex-debug.enableTelemetry": false,
+    "cortex-debug.armToolchainPath": "C:/stm32SW/GCC/bin/",
+    "cortex-debug.openocdPath": "c:/stm32SW/OpenOCD/bin/openocd.exe",
+    "cortex-debug.openocdScripts": "C:/stm32SW/OpenOCD/share/openocd/scripts",
+    "CPU_FREQ": 72000000,
+    "GCCPath": "C:/stm32SW/GCC",
+        "workbench.colorCustomizations": {
+            "window.activeBorder": "#01fc01",
+            "statusBar.background": "#104110dc",
+            // "titleBar.activeForeground": "#ff0000",
+            "titleBar.inactiveBackground": "#0bf10bdc",
+            "titleBar.activeBackground": "#104110dc"
+        },
+        "languageTool.language": "en,ru",
+        "languageTool.enabled": true,
+        "C_Cpp.errorSquiggles": "Enabled",
+        "cSpell.language": "en,ru",
+        "workbench.settings.useSplitJSON": true,
+}

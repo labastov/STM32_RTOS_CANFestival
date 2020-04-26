@@ -1,0 +1,247 @@
+[General]
+decode_signals=4
+views=1
+meta_objs=0
+
+[D0]
+name=D0
+enabled=false
+color=4279638298
+conversion_type=0
+conv_options=0
+
+[D1]
+name=D1
+enabled=false
+color=4287582722
+conversion_type=0
+conv_options=0
+
+[D2]
+name=D2 \x43a\x43d\x43e\x43f\x43a\x430
+enabled=true
+color=4293776384
+conversion_type=0
+conv_options=0
+
+[D3]
+name=D3
+enabled=false
+color=4294277376
+conversion_type=0
+conv_options=0
+
+[D4]
+name=D4 TX-STM
+enabled=true
+color=4281623972
+conversion_type=0
+conv_options=0
+
+[D5]
+name=D5 RX-STM
+enabled=true
+color=4285780502
+conversion_type=0
+conv_options=0
+
+[D6]
+name=D6 TX ARD
+enabled=true
+color=4288937984
+conversion_type=0
+conv_options=0
+
+[D7]
+name=D7 RX ARD
+enabled=true
+color=4283782995
+conversion_type=0
+conv_options=0
+
+[decode_signal0]
+name=CAN
+enabled=true
+color=4281623972
+conversion_type=0
+conv_options=0
+decoders=1
+decoder0\id=can
+decoder0\visible=true
+decoder0\options=2
+decoder0\option0\name=fast_bitrate
+decoder0\option0\value=@ByteArray( \xa1\a\0\0\0\0\0)
+decoder0\option0\type=x
+decoder0\option1\name=nominal_bitrate
+decoder0\option1\value=@ByteArray( \xa1\a\0\0\0\0\0)
+decoder0\option1\type=x
+decoder0\row0\visible=true
+decoder0\row1\visible=true
+decoder0\row2\visible=true
+decoder0\ann_class0\visible=true
+decoder0\ann_class1\visible=true
+decoder0\ann_class2\visible=true
+decoder0\ann_class3\visible=true
+decoder0\ann_class4\visible=true
+decoder0\ann_class5\visible=true
+decoder0\ann_class6\visible=true
+decoder0\ann_class7\visible=true
+decoder0\ann_class8\visible=true
+decoder0\ann_class9\visible=true
+decoder0\ann_class10\visible=true
+decoder0\ann_class11\visible=true
+decoder0\ann_class12\visible=true
+decoder0\ann_class13\visible=true
+decoder0\ann_class14\visible=true
+decoder0\ann_class15\visible=true
+decoder0\ann_class16\visible=true
+decoder0\ann_class17\visible=true
+channels=1
+channel0\name=CAN RX
+channel0\initial_pin_state=2
+channel0\assigned_signal_name=D4 TX-STM
+
+[decode_signal1]
+name=CAN
+enabled=true
+color=4283782995
+conversion_type=0
+conv_options=0
+decoders=1
+decoder0\id=can
+decoder0\visible=true
+decoder0\options=3
+decoder0\option0\name=fast_bitrate
+decoder0\option0\value=@ByteArray( \xa1\a\0\0\0\0\0)
+decoder0\option0\type=x
+decoder0\option1\name=nominal_bitrate
+decoder0\option1\value=@ByteArray( \xa1\a\0\0\0\0\0)
+decoder0\option1\type=x
+decoder0\option2\name=sample_point
+decoder0\option2\value=@ByteArray(\0\0\0\0\0\xc0P@)
+decoder0\option2\type=d
+decoder0\row0\visible=true
+decoder0\row1\visible=true
+decoder0\row2\visible=true
+decoder0\ann_class0\visible=true
+decoder0\ann_class1\visible=true
+decoder0\ann_class2\visible=true
+decoder0\ann_class3\visible=true
+decoder0\ann_class4\visible=true
+decoder0\ann_class5\visible=true
+decoder0\ann_class6\visible=true
+decoder0\ann_class7\visible=true
+decoder0\ann_class8\visible=true
+decoder0\ann_class9\visible=true
+decoder0\ann_class10\visible=true
+decoder0\ann_class11\visible=true
+decoder0\ann_class12\visible=true
+decoder0\ann_class13\visible=true
+decoder0\ann_class14\visible=true
+decoder0\ann_class15\visible=true
+decoder0\ann_class16\visible=true
+decoder0\ann_class17\visible=true
+channels=1
+channel0\name=CAN RX
+channel0\initial_pin_state=2
+channel0\assigned_signal_name=D7 RX ARD
+
+[decode_signal2]
+name=CAN
+enabled=true
+color=4288937984
+conversion_type=0
+conv_options=0
+decoders=1
+decoder0\id=can
+decoder0\visible=true
+decoder0\options=2
+decoder0\option0\name=fast_bitrate
+decoder0\option0\value=@ByteArray( \xa1\a\0\0\0\0\0)
+decoder0\option0\type=x
+decoder0\option1\name=nominal_bitrate
+decoder0\option1\value=@ByteArray( \xa1\a\0\0\0\0\0)
+decoder0\option1\type=x
+decoder0\row0\visible=true
+decoder0\row1\visible=true
+decoder0\row2\visible=true
+decoder0\ann_class0\visible=true
+decoder0\ann_class1\visible=true
+decoder0\ann_class2\visible=true
+decoder0\ann_class3\visible=true
+decoder0\ann_class4\visible=true
+decoder0\ann_class5\visible=true
+decoder0\ann_class6\visible=true
+decoder0\ann_class7\visible=true
+decoder0\ann_class8\visible=true
+decoder0\ann_class9\visible=true
+decoder0\ann_class10\visible=true
+decoder0\ann_class11\visible=true
+decoder0\ann_class12\visible=true
+decoder0\ann_class13\visible=true
+decoder0\ann_class14\visible=true
+decoder0\ann_class15\visible=true
+decoder0\ann_class16\visible=true
+decoder0\ann_class17\visible=true
+channels=1
+channel0\name=CAN RX
+channel0\initial_pin_state=2
+channel0\assigned_signal_name=D6 TX ARD
+
+[view0]
+scale=6.113060461023901e-8
+v_offset=1
+splitter_state=@ByteArray(\0\0\0\xff\0\0\0\x1\0\0\0\x2\0\0\0u\0\0\x5\xb0\x1\0\0\0\x1\x1\0\0\0\x1\0)
+segment_display_mode=1
+offset=22 serialization::archive 14 0 0 0 0 466 27010479 32276227 61836562 20303319 49238993 -8 1 0 6
+zero_offset=22 serialization::archive 14 0 0 0 0 0 0 0 0 0 0 0 0 0 6
+D0\trace_height=32
+D1\trace_height=32
+D2\trace_height=32
+D3\trace_height=32
+D4\trace_height=60
+D5\trace_height=32
+D6\trace_height=32
+D7\trace_height=32
+
+[decode_signal3]
+name=CAN
+enabled=true
+color=4285780502
+conversion_type=0
+conv_options=0
+decoders=1
+decoder0\id=can
+decoder0\visible=true
+decoder0\options=2
+decoder0\option0\name=fast_bitrate
+decoder0\option0\value=@ByteArray( \xa1\a\0\0\0\0\0)
+decoder0\option0\type=x
+decoder0\option1\name=nominal_bitrate
+decoder0\option1\value=@ByteArray( \xa1\a\0\0\0\0\0)
+decoder0\option1\type=x
+decoder0\row0\visible=true
+decoder0\row1\visible=true
+decoder0\row2\visible=true
+decoder0\ann_class0\visible=true
+decoder0\ann_class1\visible=true
+decoder0\ann_class2\visible=true
+decoder0\ann_class3\visible=true
+decoder0\ann_class4\visible=true
+decoder0\ann_class5\visible=true
+decoder0\ann_class6\visible=true
+decoder0\ann_class7\visible=true
+decoder0\ann_class8\visible=true
+decoder0\ann_class9\visible=true
+decoder0\ann_class10\visible=true
+decoder0\ann_class11\visible=true
+decoder0\ann_class12\visible=true
+decoder0\ann_class13\visible=true
+decoder0\ann_class14\visible=true
+decoder0\ann_class15\visible=true
+decoder0\ann_class16\visible=true
+decoder0\ann_class17\visible=true
+channels=1
+channel0\name=CAN RX
+channel0\initial_pin_state=2
+channel0\assigned_signal_name=D5 RX-STM

@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+      "name": "Debug Microcontroller",
+      "cwd": "${workspaceRoot}",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "openocd",
+      "executable": "./build/${workspaceFolderBasename}.elf",
+      "svdFile": "${workspaceFolder}/support/STM32F103xx.svd",
+      "configFiles": [
+        "${config:cortex-debug.openocdScripts}/interface/stlink-v2-1.cfg",
+        "${config:cortex-debug.openocdScripts}/target/stm32f1x.cfg",
+      ],
+      "preLaunchTask": "Build 16",
+      "armToolchainPath": "${config:GCCPath}/bin/",
+      // "showDevDebugOutput": true,
+      "cpu": "cortex-m3",
+      // "serverArgs": [
+      //   "--with-access-to=env"
+      // ],
+      "demangle": true,
+      "device": "stlink",
+      "interface": "swd",
+      "swoConfig": {
+        "enabled": true,
+        // "cpuFrequency": 8000000,
+        // "swoFrequency": 2000000,
+        "cpuFrequency": "${config:CPU_FREQ}",
+        "swoFrequency": 2000000,
+        "source": "probe",
+        "decoders": [{
+          "type": "console",
+          "label": "ITM",
+          "showOnStartup": true,
+          "port": 0
+        }]
+      },
+    },
+  ]
+}

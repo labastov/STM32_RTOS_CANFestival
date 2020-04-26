@@ -1,0 +1,17 @@
+[
+    {
+        "key": "alt+shiht+F3",
+        "command": "editor.action.transformToUppercase",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+u",
+        "command": "editor.action.transformToUppercase",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "workbench.action.tasks.runTask",
+        "args": "build"
+    }
+]
